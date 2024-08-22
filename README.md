@@ -16,6 +16,29 @@
     <img src="docs/img/diagram.svg" alt="diagram" width="1024px"/>
 </p>
 
+Заметки по стеку:
+
+- [FastAPI](src/backend/api/README.md)
+- [PostgreSQL](src/backend/database/README.md)
+- [Next.js](src/frontend/README.md)
+
+## Деплой
+
+- Для работы потребуется база данных [PostgreSQL](https://www.postgresql.org).
+- [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer) менеджер управления пакетами.
+- [Docker](https://www.docker.com) в качестве контейнера.
+
+Клонировать репозиторий:
+
+```sh
+git clone https://github.com/Temnomor/temnomor_dates.git
+```
+
+Сборка контейнеров и запуск:
+
+```sh
+docker compose up --build
+```
 
 ## Сайт создан с использованием следующих технологий:
 
