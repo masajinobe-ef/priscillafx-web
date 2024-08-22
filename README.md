@@ -31,7 +31,7 @@
 Клонировать репозиторий:
 
 ```sh
-git clone https://github.com/Temnomor/temnomor_dates.git
+git clone https://github.com/masajinobe-ef/priscillafx-web.git
 ```
 
 Сборка контейнеров и запуск:
