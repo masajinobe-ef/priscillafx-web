@@ -1,22 +1,23 @@
-# Official website of Priscilla FX
-
 <p align="center">
-    <img src="docs/img/1.png" alt="1"/>
+    <img src="docs/img/preview.png" alt="preview"/>
 </p>
 
-[![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg?style=for-the-badge)](LICENSE "License")
-[![Donate](https://img.shields.io/badge/_-Donate-red.svg?logo=githubsponsors&labelColor=555555&style=for-the-badge)](https://boosty.to/priscilla-custom-effects "Donate")
-[![Stars](https://img.shields.io/github/stars/masajinobe-ef/priscillafx-website?color=fff&labelColor=0C0E0F&style=for-the-badge)](https://boosty.to/priscilla-custom-effects "Stars")
-[![Code Size](https://img.shields.io/github/languages/code-size/masajinobe-ef/priscillafx-website.svg?style=for-the-badge)](https://github.com/masajinobe-ef/priscillafx-website "Code Size")
-[![Repository size](https://img.shields.io/github/repo-size/masajinobe-ef/priscillafx-website.svg?style=for-the-badge)](https://github.com/masajinobe-ef/priscillafx-website "Repository size")
-[![Top language](https://img.shields.io/github/languages/top/masajinobe-ef/priscillafx-website.svg?style=for-the-badge)](https://github.com/masajinobe-ef/priscillafx-website "Top language")
+<p align="center">
+    <b><em>Priscilla FX</em></b>
+</p>
 
-## Описание
+<p align="center">
+    <em>Проект создан в качестве интернет-магазина и информационного ресурса мастерской Priscilla FX.</em>
+</p>
 
-Официальный сайт Priscilla FX - платформа, созданная с использованием технологий FastAPI и Next.js.
-Веб-сайт использует FastAPI в качестве серверной платформы и Next.js в качестве отрисовки интерфейса.
+## Структура проекта
 
-### Сайт создан с использованием следующих технологий:
+<p align="center">
+    <img src="docs/img/diagram.svg" alt="diagram" width="1024px"/>
+</p>
+
+
+## Сайт создан с использованием следующих технологий:
 
 **Backend фреймворк:**
 
@@ -47,11 +48,13 @@
 Имеет систему миграции базы данных с помощью **Alembic**. Это позволяет легко управлять изменениями схемы базы данных.
 
 <p align="center">
+    <img src="docs/img/1.png" alt="1"/>
     <img src="docs/img/2.png" alt="2"/>
     <img src="docs/img/3.png" alt="3"/>
-    <img src="docs/img/4.png" alt="4"/>
 </p>
 
-#### License
+## License
+
+[![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg?style=for-the-badge)](LICENSE "License")
 
 This project is licensed under GPL-3.0. Please refer to the [LICENSE](LICENSE) file for detailed license information.
