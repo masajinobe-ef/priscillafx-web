@@ -13,11 +13,11 @@ from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 # Auth depends
-from auth.config import current_superuser
-from auth.models import User
+from ..auth.config import current_superuser
+from database.models.auth.models import User
 
 # Models
-from blog.models import Blog
+from database.models.blog.models import Blog
 
 # Database
 from database import async_engine

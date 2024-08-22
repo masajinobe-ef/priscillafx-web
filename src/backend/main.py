@@ -25,12 +25,12 @@ from logger import logger
 
 
 # Routers depends
-from auth.router import router as router_auth
-from blog.router import router as router_blog
-from custom.router import router as router_custom
-from artists.router import router as router_artists
-from pages.router import router as router_pages
-from tasks.router import router as router_tasks
+from api.routers.auth import router as router_auth
+from api.routers.blog import router as router_blog
+from api.routers.custom import router as router_custom
+from api.routers.artist import router as router_artist
+from api.routers.pages import router as router_pages
+from api.routers.tasks import router as router_tasks
 
 
 # Startup events
@@ -71,7 +71,7 @@ app = FastAPI(
 app.include_router(router_auth)
 app.include_router(router_blog)
 app.include_router(router_custom)
-app.include_router(router_artists)
+app.include_router(router_artist)
 app.include_router(router_pages)
 app.include_router(router_tasks)
 

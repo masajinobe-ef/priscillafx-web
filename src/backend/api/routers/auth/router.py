@@ -6,8 +6,8 @@ Written by masajinobe-ef
 from fastapi import APIRouter
 
 # Auth depends
-from auth.config import auth_backend, fastapi_users
-from auth.schemas import UserRead, UserCreate
+from ..auth.config import auth_backend, fastapi_users
+from ..auth.schemas import UserRead, UserCreate
 
 
 router = APIRouter(prefix='/auth', tags=['Auth'])

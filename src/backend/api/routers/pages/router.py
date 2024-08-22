@@ -12,9 +12,9 @@ from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 # Models
-from blog.models import Blog
-from custom.models import Custom
-from artists.models import Artists
+from database.models.blog.models import Blog
+from database.models.custom.models import Custom
+from database.models.artist.models import Artists
 
 # Database
 from database import async_engine

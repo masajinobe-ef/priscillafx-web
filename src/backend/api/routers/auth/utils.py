@@ -13,7 +13,7 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 from database import get_async_session
 
 # Auth depends
-from auth.models import User
+from database.models.auth.models import User
 
 
 async def get_user_db(session: AsyncSession = Depends(get_async_session)):

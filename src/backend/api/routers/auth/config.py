@@ -14,8 +14,8 @@ from fastapi_users.authentication import (
 from config import SECRET_AUTH
 
 # Auth depends
-from auth.manager import get_user_manager
-from auth.models import User
+from ..auth.manager import get_user_manager
+from database.models.auth.models import User
 
 
 # Cookie with JWT

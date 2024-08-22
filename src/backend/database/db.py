@@ -20,7 +20,7 @@ from sqlalchemy.orm import DeclarativeBase
 from logger import logger
 
 # Config
-from config import DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME, ECHO
+from config import DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME, ECHO_DB
 
 
 # Database onnection string
@@ -33,7 +33,9 @@ class Base(AsyncAttrs, DeclarativeBase):
     pass
 
 
-async_engine = create_async_engine(DATABASE_URL, echo=(ECHO.lower() == 'true'))
+async_engine = create_async_engine(
+    DATABASE_URL, echo=(ECHO_DB.lower() == 'true')
+)
 async_session = async_sessionmaker(
     async_engine, class_=AsyncSession, expire_on_commit=False
 )
@@ -54,6 +56,5 @@ async def init_models() -> None:
             await conn.run_sync(Base.metadata.create_all)
             await conn.run_sync(SQLModel.metadata.create_all)
             # await conn.run_sync(SQLModel.metadata.drop_all)
-
     except ConnectionRefusedError as e:
         logger.error(f'Error connecting to the database: {e}')

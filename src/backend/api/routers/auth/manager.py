@@ -20,8 +20,8 @@ from fastapi_users import (
 from config import SECRET_AUTH
 
 # Auth depends
-from auth.models import User
-from auth.utils import get_user_db
+from database.models.auth.models import User
+from ..auth.utils import get_user_db
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
