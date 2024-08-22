@@ -2,7 +2,7 @@
 [tool.poetry]
 name = "priscillafx-website"
 version = "0.1.0"
-description = "Official website of Priscilla FX"
+description = "🌐 Priscilla FX online store and information resource written with Next.𝐣s and Fast𝓐PI.  🐘PostgreSQL / 🇷edis / 🇩ocker."
 authors = ["masajinobe-ef <priscilla.effects@gmail.com>"]
 license = "GPL-3.0"
 readme = "README.md"
