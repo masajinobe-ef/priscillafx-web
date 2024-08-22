@@ -1,0 +1,33 @@
+networks:
+  deploy_pfx:
+
+services:
+  # Nginx config
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+      - "/etc/letsencrypt:/etc/letsencrypt"
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - deploy_pfx
+
+  # FastAPI + PostgreSQL
+  backend:
+    build:
+      context: ./backend
+    networks:
+      - deploy_pfx
+
+  # React Native
+  frontend:
+    build:
+      context: ./frontend
+    networks:
+      - deploy_pfx
+# TODO Добавить такие сервисы как Redis, Celery (flower)
