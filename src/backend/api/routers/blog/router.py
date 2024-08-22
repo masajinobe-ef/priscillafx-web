@@ -20,7 +20,7 @@ from database.models.auth.models import User
 from database.models.blog.models import Blog
 
 # Database
-from database import async_engine
+from database.db import async_engine
 
 # Loguru
 from logger import logger

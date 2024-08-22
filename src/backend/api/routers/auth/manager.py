@@ -17,7 +17,7 @@ from fastapi_users import (
 )
 
 # Config
-from config import SECRET_AUTH
+from config import JWT_SECRET_KEY
 
 # Auth depends
 from database.models.auth.models import User
@@ -25,8 +25,8 @@ from ..auth.utils import get_user_db
 
 
 class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
-    reset_password_token_secret = SECRET_AUTH
-    verification_token_secret = SECRET_AUTH
+    reset_password_token_secret = JWT_SECRET_KEY
+    verification_token_secret = JWT_SECRET_KEY
 
 
 async def on_after_register(

@@ -14,16 +14,16 @@ from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
 # Config
-from src.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS
+from src.backend.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS
 
 # Database
-from src.database import Base
+from src.backend.database.db import Base
 
 # Models
-from src.blog.models import *
-from src.auth.models import *
-from src.artists.models import *
-from src.custom.models import *
+from src.backend.database.models.blog.models import *
+from src.backend.database.models.auth.models import *
+from src.backend.database.models.artist.models import *
+from src.backend.database.models.custom.models import *
 
 
 # this is the Alembic Config object, which provides
@@ -31,11 +31,11 @@ from src.custom.models import *
 config = context.config
 
 section = config.config_ini_section
-config.set_section_option(section, 'DB_HOST', DB_HOST)
-config.set_section_option(section, 'DB_PORT', DB_PORT)
-config.set_section_option(section, 'DB_NAME', DB_NAME)
-config.set_section_option(section, 'DB_USER', DB_USER)
-config.set_section_option(section, 'DB_PASS', DB_PASS)
+config.set_section_option(section, 'POSTGRES_HOST', DB_HOST)
+config.set_section_option(section, 'POSTGRES_PORT', DB_PORT)
+config.set_section_option(section, 'POSTGRES_NAME', DB_NAME)
+config.set_section_option(section, 'POSTGRES_USER', DB_USER)
+config.set_section_option(section, 'POSTGRES_PASS', DB_PASS)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

@@ -19,7 +19,7 @@ from sqlalchemy import (
 )
 
 # Database
-from database import Base
+from database.db import Base
 
 
 class Role(Base):

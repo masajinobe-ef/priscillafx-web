@@ -10,7 +10,6 @@ from config import REDIS_HOST, REDIS_PORT
 # FastAPI
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 # FastAPI Cache
@@ -25,12 +24,11 @@ from logger import logger
 
 
 # Routers depends
-from api.routers.auth import router as router_auth
-from api.routers.blog import router as router_blog
-from api.routers.custom import router as router_custom
-from api.routers.artist import router as router_artist
-from api.routers.pages import router as router_pages
-from api.routers.tasks import router as router_tasks
+from api.routers.auth.router import router as router_auth
+from api.routers.blog.router import router as router_blog
+from api.routers.custom.router import router as router_custom
+from api.routers.artist.router import router as router_artist
+from api.routers.tasks.router import router as router_tasks
 
 
 # Startup events
@@ -72,17 +70,11 @@ app.include_router(router_auth)
 app.include_router(router_blog)
 app.include_router(router_custom)
 app.include_router(router_artist)
-app.include_router(router_pages)
 app.include_router(router_tasks)
 
+
 # Mount static files
-app.mount('/static', StaticFiles(directory='static'), name='static')
-
-
-# App Favicon
-@app.get('/favicon.ico', include_in_schema=False)
-async def favicon() -> FileResponse:
-    return FileResponse('./api/static/images/icons/favicon.ico')
+app.mount('/static', StaticFiles(directory='api/static'), name='static')
 
 
 # CORS
@@ -107,5 +99,5 @@ if __name__ == '__main__':
     import uvicorn
 
     uvicorn.run(
-        app, host='127.0.0.1', port=50150, log_level='info', lifespan='on'
+        app, host='localhost', port=50150, log_level='info', lifespan='on'
     )

@@ -10,7 +10,7 @@ load_dotenv()
 
 
 # Secret JWT key
-SECRET_AUTH = os.environ.get('SECRET_AUTH')
+JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 # Database onnection string
 DB_HOST = os.environ.get('POSTGRES_HOST')

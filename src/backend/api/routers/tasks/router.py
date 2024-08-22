@@ -6,7 +6,7 @@ Written by masajinobe-ef
 from fastapi import APIRouter, Depends
 
 # Auth depends
-from auth.config import current_user
+from ..auth.config import current_user
 
 # Tasks events
 from .tasks import send_email_report_hello
