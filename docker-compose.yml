@@ -24,7 +24,7 @@ services:
     networks:
       - deploy_pfx
 
-  # React Native
+  # Next.js
   frontend:
     build:
       context: ./frontend
