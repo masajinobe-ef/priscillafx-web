@@ -16,10 +16,23 @@ export default function Artists() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const menuItems = [
+    { href: "/", icon: "icon-home.svg", label: "Home" },
+    { href: "/blog", icon: "icon-blog.svg", label: "Blog" },
+    { href: "/software", icon: "icon-software.svg", label: "Software" },
+    { href: "/custom", icon: "icon-custom.svg", label: "Custom" },
+    { href: "/mods", icon: "icon-mods.svg", label: "Mods" },
+    { href: "/artists", icon: "icon-artists.svg", label: "Artists" },
+    { href: "/faq", icon: "icon-faq.svg", label: "F.A.Q." },
+    { href: "/about", icon: "icon-about.svg", label: "About" },
+  ];
+
   useEffect(() => {
     const fetchArtists = async () => {
       try {
-        const response = await axios.get("http://localhost:50150/artists/get_artists");
+        const response = await axios.get(
+          "http://localhost:50150/artists/get_artists"
+        );
         const data = response.data;
 
         if (data.status === "Success") {
@@ -42,20 +55,9 @@ export default function Artists() {
       <header className="flex justify-between bg-purple-800 p-3">
         <nav>
           <ul className="flex space-x-2">
-            {[
-              { href: "/", label: "Home", icon: "icon-home.svg" },
-              { href: "blog", label: "Blog", icon: "icon-blog.svg" },
-              { href: "custom", label: "Custom", icon: "icon-custom.svg" },
-              { href: "mods", label: "Mods", icon: "icon-mods.svg" },
-              { href: "artists", label: "Artists", icon: "icon-artists.svg" },
-              { href: "faq", label: "F.A.Q.", icon: "icon-faq.svg" },
-              { href: "about", label: "About", icon: "icon-about.svg" },
-            ].map((item) => (
+            {menuItems.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="text-white p-2 hover:text-black text-lg"
-                >
+                <a href={item.href} className="text-white p-2 hover:text-black">
                   <Image
                     src={`/images/icons/${item.icon}`}
                     alt={item.label}
@@ -71,14 +73,26 @@ export default function Artists() {
         </nav>
       </header>
 
-      <main className="flex-grow flex justify-center items-center bg-lavender p-5 text-gray-800">
+      <main className="flex-grow flex justify-center items-start bg-lavender p-5 text-gray-800 overflow-y-auto">
         <div className="info w-full max-w-2xl">
           {loading ? (
-            <p>Loading artists...</p>
+            <div className="flex flex-col justify-center items-center min-h-screen w-full">
+              <div className="bg-gray-800 rounded-lg p-6">
+                <p className="text-white">Loading...</p>
+              </div>
+            </div>
           ) : error ? (
-            <p>{error}</p>
+            <div className="flex flex-col justify-center items-center min-h-screen w-full">
+              <div className="bg-gray-800 rounded-lg p-6">
+                <p className="text-red-500">{error}</p>
+              </div>
+            </div>
           ) : artists.length === 0 ? (
-            <li>No artists found</li>
+            <div className="flex flex-col justify-center items-center min-h-screen w-full">
+              <div className="bg-gray-800 rounded-lg p-6">
+                <p className="text-white">No artists found</p>
+              </div>
+            </div>
           ) : (
             <ul>
               {artists.map((artist) => (
@@ -94,13 +108,7 @@ export default function Artists() {
                   </a>
                   <p>{artist.full_name}</p>
                   <a
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                      backgroundColor: "purple",
-                      padding: "5px 10px",
-                      borderRadius: "5px",
-                    }}
+                    className="text-white bg-purple-600 hover:bg-purple-700 transition-colors rounded px-2 py-1"
                     href={artist.link}
                   >
                     {artist.band}
@@ -113,7 +121,7 @@ export default function Artists() {
       </main>
 
       <footer className="bg-purple-800 text-white text-center p-3">
-        <p className="text-lg">
+        <p>
           Pedals... or something like this🌌
           <br />
           ・Custom Effects ・Modifications ・Hi-End Musical Accessories ・Resale

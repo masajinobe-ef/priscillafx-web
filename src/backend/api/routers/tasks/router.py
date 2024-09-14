@@ -11,7 +11,6 @@ from ..auth.config import current_user
 # Tasks events
 from .tasks import send_email_report_hello
 
-
 router = APIRouter(prefix='/report', tags=['Tasks'])
 
 

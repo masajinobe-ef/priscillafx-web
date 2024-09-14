@@ -1,26 +1,26 @@
 import Image from "next/image";
 import "../styles/globals.css";
 
+const menuItems = [
+  { href: "/", label: "Home", icon: "icon-home.svg" },
+  { href: "blog", label: "Blog", icon: "icon-blog.svg" },
+  { href: "/software", icon: "icon-software.svg", label: "Software" },
+  { href: "custom", label: "Custom", icon: "icon-custom.svg" },
+  { href: "mods", label: "Mods", icon: "icon-mods.svg" },
+  { href: "artists", label: "Artists", icon: "icon-artists.svg" },
+  { href: "faq", label: "F.A.Q.", icon: "icon-faq.svg" },
+  { href: "about", label: "About", icon: "icon-about.svg" },
+];
+
 export default function About() {
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-white">
       <header className="flex justify-between bg-purple-800 p-3">
         <nav>
           <ul className="flex space-x-2">
-            {[
-              { href: "/", label: "Home", icon: "icon-home.svg" },
-              { href: "blog", label: "Blog", icon: "icon-blog.svg" },
-              { href: "custom", label: "Custom", icon: "icon-custom.svg" },
-              { href: "mods", label: "Mods", icon: "icon-mods.svg" },
-              { href: "artists", label: "Artists", icon: "icon-artists.svg" },
-              { href: "faq", label: "F.A.Q.", icon: "icon-faq.svg" },
-              { href: "about", label: "About", icon: "icon-about.svg" },
-            ].map((item) => (
+            {menuItems.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="text-white p-2 hover:text-black text-lg"
-                >
+                <a href={item.href} className="text-white p-2 hover:text-black">
                   <Image
                     src={`/images/icons/${item.icon}`}
                     alt={item.label}
@@ -36,32 +36,43 @@ export default function About() {
         </nav>
       </header>
 
-      <main className="flex-grow flex justify-center items-center bg-lavender p-5 text-gray-800">
-        <div className="bg-white p-5 rounded text-center">
+      <main className="flex-grow flex justify-center items-center bg-lavender p-5 text-gray-800 overflow-y-auto">
+        <div className="bg-white p-5 rounded text-center min-h-full">
           <table className="w-full border-collapse mb-0 shadow-lg border-2 border-gray-300 rounded-lg">
             <thead>
               <tr>
-                <th className="border-2 p-2 text-lg bg-gray-100">
+                <th className="border-2 p-2 bg-gray-100">
                   Полное наименование
                 </th>
-                <th className="border-2 p-2 text-lg bg-gray-100">
+                <th className="border-2 p-2  bg-gray-100">
                   ИП Колесов Арсений Дмитриевич
                 </th>
               </tr>
             </thead>
             <tbody>
               {[
+                {
+                  label: "Электронная почта",
+                  value: (
+                    <a
+                      href="mailto:priscilla.effects@gmail.com"
+                      className="text-purple-800"
+                    >
+                      <b>priscilla.effects@gmail.com</b>
+                    </a>
+                  ),
+                },
                 { label: "ОГРНИП", value: "324723200015923" },
                 { label: "ИНН", value: "890306202170" },
                 {
                   label: "ОКВЭД",
-                  value: "32.20, 47.91.2, 58.21, 58.29, 62.01, 63.11.1, 63.12",
+                  value: (
+                    <>
+                      <b>32.20</b>, 47.91.2, 58.21, 58.29, 62.01, 63.11.1, 63.12
+                    </>
+                  ),
                 },
                 { label: "Расчётный счёт", value: <b>40802810400006021068</b> },
-                {
-                  label: "Корреспондентский счёт",
-                  value: "30101810145250000974",
-                },
                 {
                   label: "БИК банка",
                   value: "044525974",
@@ -135,8 +146,8 @@ export default function About() {
                 },
               ].map((item) => (
                 <tr key={item.label}>
-                  <td className="border-2 p-2 text-lg">{item.label}</td>
-                  <td className="border-2 p-2 text-lg">
+                  <td className="border-2 p-2">{item.label}</td>
+                  <td className="border-2 p-2">
                     {item.isLink ? (
                       <center>
                         <a
@@ -221,7 +232,7 @@ export default function About() {
       </main>
 
       <footer className="bg-purple-800 text-white text-center p-3">
-        <p className="text-lg">
+        <p>
           Pedals... or something like this🌌
           <br />
           ・Custom Effects ・Modifications ・Hi-End Musical Accessories ・Resale

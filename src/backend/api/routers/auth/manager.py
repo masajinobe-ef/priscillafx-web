@@ -4,6 +4,12 @@ Written by masajinobe-ef
 
 from typing import Optional
 
+# Config
+from config import JWT_SECRET_KEY
+
+# Auth depends
+from database.models.auth.models import User
+
 # FastAPI
 from fastapi import Depends, Request
 
@@ -16,11 +22,6 @@ from fastapi_users import (
     schemas,
 )
 
-# Config
-from config import JWT_SECRET_KEY
-
-# Auth depends
-from database.models.auth.models import User
 from ..auth.utils import get_user_db
 
 

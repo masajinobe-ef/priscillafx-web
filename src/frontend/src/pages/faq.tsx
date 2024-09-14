@@ -50,25 +50,25 @@ export default function FAQ() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const menuItems = [
+    { href: "/", icon: "icon-home.svg", label: "Home" },
+    { href: "/blog", icon: "icon-blog.svg", label: "Blog" },
+    { href: "/software", icon: "icon-software.svg", label: "Software" },
+    { href: "/custom", icon: "icon-custom.svg", label: "Custom" },
+    { href: "/mods", icon: "icon-mods.svg", label: "Mods" },
+    { href: "/artists", icon: "icon-artists.svg", label: "Artists" },
+    { href: "/faq", icon: "icon-faq.svg", label: "F.A.Q." },
+    { href: "/about", icon: "icon-about.svg", label: "About" },
+  ];
+
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-white">
       <header className="flex justify-between bg-purple-800 p-3">
         <nav>
           <ul className="flex space-x-2">
-            {[
-              { href: "/", label: "Home", icon: "icon-home.svg" },
-              { href: "blog", label: "Blog", icon: "icon-blog.svg" },
-              { href: "custom", label: "Custom", icon: "icon-custom.svg" },
-              { href: "mods", label: "Mods", icon: "icon-mods.svg" },
-              { href: "artists", label: "Artists", icon: "icon-artists.svg" },
-              { href: "faq", label: "F.A.Q.", icon: "icon-faq.svg" },
-              { href: "about", label: "About", icon: "icon-about.svg" },
-            ].map((item) => (
+            {menuItems.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="text-white p-2 hover:text-black text-lg"
-                >
+                <a href={item.href} className="text-white p-2 hover:text-black">
                   <Image
                     src={`/images/icons/${item.icon}`}
                     alt={item.label}
@@ -84,16 +84,16 @@ export default function FAQ() {
         </nav>
       </header>
 
-      <main className="flex-grow flex justify-center items-center bg-lavender p-5 text-gray-800">
+      <main className="flex-grow flex justify-center items-start bg-lavender p-5 text-gray-800 overflow-y-auto">
         <div className="info w-full max-w-2xl">
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
               <h3
-                className="cursor-pointer text-lg font-semibold bg-gray-200 p-3 rounded"
+                className="cursor-pointer font-semibold bg-gray-200 p-3 rounded"
                 onClick={() => toggleFAQ(index)}
                 role="button"
                 tabIndex={0}
-                onKeyPress={(e) => {
+                onKeyDown={(e) => {
                   if (e.key === "Enter") toggleFAQ(index);
                 }}
               >
@@ -110,7 +110,7 @@ export default function FAQ() {
       </main>
 
       <footer className="bg-purple-800 text-white text-center p-3">
-        <p className="text-lg">
+        <p>
           Pedals... or something like this🌌
           <br />
           ・Custom Effects ・Modifications ・Hi-End Musical Accessories ・Resale

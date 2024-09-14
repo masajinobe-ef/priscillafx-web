@@ -4,22 +4,22 @@ Written by masajinobe-ef
 
 from datetime import datetime
 
+# Database
+from database.db import Base
+
 # FastAPI Users
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
 
 # SQLAlchemy
 from sqlalchemy import (
-    Integer,
-    String,
-    ForeignKey,
-    Column,
     JSON,
     TIMESTAMP,
     Boolean,
+    Column,
+    ForeignKey,
+    Integer,
+    String,
 )
-
-# Database
-from database.db import Base
 
 
 class Role(Base):

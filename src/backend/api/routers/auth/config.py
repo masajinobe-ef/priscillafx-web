@@ -3,20 +3,18 @@ Written by masajinobe-ef
 """
 
 # FastAPI Users
+# Config
+from config import JWT_SECRET_KEY
+from database.models.auth.models import User
 from fastapi_users import FastAPIUsers
 from fastapi_users.authentication import (
     AuthenticationBackend,
-    JWTStrategy,
     CookieTransport,
+    JWTStrategy,
 )
-
-# Config
-from config import JWT_SECRET_KEY
 
 # Auth depends
 from ..auth.manager import get_user_manager
-from database.models.auth.models import User
-
 
 # Cookie with JWT
 cookie_transport = CookieTransport(

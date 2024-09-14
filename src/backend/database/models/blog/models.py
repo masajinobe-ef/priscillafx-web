@@ -5,7 +5,7 @@ Written by masajinobe-ef
 from datetime import datetime
 
 # SQLModel
-from sqlmodel import SQLModel, Field
+from sqlmodel import Field, SQLModel
 
 
 class Blog(SQLModel, table=True):

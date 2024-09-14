@@ -2,26 +2,25 @@
 Written by masajinobe-ef
 """
 
-from typing import AsyncGenerator, Any
+from typing import Any, AsyncGenerator
 
-# SQLModel
-from sqlmodel import SQLModel
+# Config
+from config import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
+
+# Loguru
+from logger import logger
 
 # SQLAlchemy
 from sqlalchemy.ext.asyncio import (
-    AsyncSession,
     AsyncAttrs,
+    AsyncSession,
     async_sessionmaker,
     create_async_engine,
 )
 from sqlalchemy.orm import DeclarativeBase
 
-# Loguru
-from logger import logger
-
-# Config
-from config import DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME
-
+# SQLModel
+from sqlmodel import SQLModel
 
 # Database onnection string
 DATABASE_URL = (

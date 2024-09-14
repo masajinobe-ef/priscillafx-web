@@ -4,6 +4,14 @@ Written by masajinobe-ef
 
 from contextlib import asynccontextmanager
 
+from api.routers.artist.router import router as router_artist
+
+# Routers depends
+from api.routers.auth.router import router as router_auth
+from api.routers.blog.router import router as router_blog
+from api.routers.custom.router import router as router_custom
+from api.routers.tasks.router import router as router_tasks
+
 # Config
 from config import REDIS_HOST, REDIS_PORT
 
@@ -16,19 +24,11 @@ from fastapi.staticfiles import StaticFiles
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 
-# Redis
-from redis import asyncio as aioredis
-
 # Loguru
 from logger import logger
 
-
-# Routers depends
-from api.routers.auth.router import router as router_auth
-from api.routers.blog.router import router as router_blog
-from api.routers.custom.router import router as router_custom
-from api.routers.artist.router import router as router_artist
-from api.routers.tasks.router import router as router_tasks
+# Redis
+from redis import asyncio as aioredis
 
 
 # Startup events

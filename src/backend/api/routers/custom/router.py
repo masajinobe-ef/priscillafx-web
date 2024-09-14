@@ -3,10 +3,19 @@ Written by masajinobe-ef
 """
 
 # FastAPI
-from fastapi import APIRouter, HTTPException, Form, Depends
+# Database
+from database.db import async_engine
+from database.models.auth.models import User
+
+# Models
+from database.models.custom.models import Custom
+from fastapi import APIRouter, Depends, Form, HTTPException
 
 # FastAPI Cache
 from fastapi_cache.decorator import cache
+
+# Loguru
+from logger import logger
 
 # SQLModel
 from sqlmodel import select
@@ -14,17 +23,6 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 
 # Auth depends
 from ..auth.config import current_superuser
-from database.models.auth.models import User
-
-# Models
-from database.models.custom.models import Custom
-
-# Database
-from database.db import async_engine
-
-# Loguru
-from logger import logger
-
 
 router = APIRouter(prefix='/custom', tags=['Custom'])
 

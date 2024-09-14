@@ -14,17 +14,16 @@ from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
 # Config
-from src.backend.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS
+from src.backend.config import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
 
 # Database
 from src.backend.database.db import Base
+from src.backend.database.models.artist.models import *
+from src.backend.database.models.auth.models import *
 
 # Models
 from src.backend.database.models.blog.models import *
-from src.backend.database.models.auth.models import *
-from src.backend.database.models.artist.models import *
 from src.backend.database.models.custom.models import *
-
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

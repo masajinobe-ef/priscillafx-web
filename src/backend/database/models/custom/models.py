@@ -3,7 +3,7 @@ Written by masajinobe-ef
 """
 
 # SQLModel
-from sqlmodel import SQLModel, Field
+from sqlmodel import Field, SQLModel
 
 
 class Custom(SQLModel, table=True):

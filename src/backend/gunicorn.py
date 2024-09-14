@@ -4,7 +4,6 @@ Written by masajinobe-ef
 
 import multiprocessing
 
-
 # Server settings
 bind = '127.0.0.1:8000'
 # Adjust by CPU
