@@ -1,16 +1,18 @@
 import Image from "next/image";
 
 export default function NotFound() {
+  const backgroundImage = "/images/backgrounds/notfound.jpg"
+
   return (
     <>
       <main className="relative flex min-h-screen flex-col items-center justify-center p-12">
         <div className="absolute inset-0">
           <Image
-            src="/images/backgrounds/NotFound.jpg"
-            alt="Not Found"
+            src={backgroundImage}
+            alt="backgroundImage"
             fill
             priority
-            style={{ objectFit: "cover", opacity: 0.7 }}
+            style={{ objectFit: "cover" }}
           />
         </div>
         <div className="relative z-10 bg-black bg-opacity-50 p-8 rounded-lg shadow-lg">

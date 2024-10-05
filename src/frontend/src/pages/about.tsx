@@ -1,40 +1,12 @@
 import Image from "next/image";
 import "../styles/globals.css";
-
-const menuItems = [
-  { href: "/", label: "Home", icon: "icon-home.svg" },
-  { href: "blog", label: "Blog", icon: "icon-blog.svg" },
-  { href: "/software", icon: "icon-software.svg", label: "Software" },
-  { href: "custom", label: "Custom", icon: "icon-custom.svg" },
-  { href: "mods", label: "Mods", icon: "icon-mods.svg" },
-  { href: "artists", label: "Artists", icon: "icon-artists.svg" },
-  { href: "faq", label: "F.A.Q.", icon: "icon-faq.svg" },
-  { href: "about", label: "About", icon: "icon-about.svg" },
-];
+import NavBar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function About() {
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-white">
-      <header className="flex justify-between bg-purple-800 p-3">
-        <nav>
-          <ul className="flex space-x-2">
-            {menuItems.map((item) => (
-              <li key={item.label}>
-                <a href={item.href} className="text-white p-2 hover:text-black">
-                  <Image
-                    src={`/images/icons/${item.icon}`}
-                    alt={item.label}
-                    width={32}
-                    height={32}
-                    className="inline-block mr-1 filter brightness-0 invert"
-                  />
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      <NavBar />
 
       <main className="flex-grow flex justify-center items-center bg-lavender p-5 text-gray-800 overflow-y-auto">
         <div className="bg-white p-5 rounded text-center min-h-full">
@@ -231,13 +203,7 @@ export default function About() {
         </div>
       </main>
 
-      <footer className="bg-purple-800 text-white text-center p-3">
-        <p>
-          Pedals... or something like this🌌
-          <br />
-          ・Custom Effects ・Modifications ・Hi-End Musical Accessories ・Resale
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

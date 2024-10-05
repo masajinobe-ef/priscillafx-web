@@ -1,12 +1,32 @@
 import Image from "next/image";
 
 export default function Home() {
+  const navItems = [
+    { href: "/", icon: "icon-home.svg", label: "Home" },
+    { href: "blog", icon: "icon-blog.svg", label: "Blog" },
+    {
+      href: "software",
+      icon: "icon-software.svg",
+      label: "Software",
+    },
+    { href: "custom", icon: "icon-custom.svg", label: "Custom" },
+    { href: "mods", icon: "icon-mods.svg", label: "Mods" },
+    {
+      href: "artists",
+      icon: "icon-artists.svg",
+      label: "Artists",
+    },
+    { href: "faq", icon: "icon-faq.svg", label: "F.A.Q." },
+    { href: "about", icon: "icon-about.svg", label: "About" },
+  ];
+  const backgroundImage = "/images/backgrounds/Home.jpg"
+
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between p-12">
       <div className="absolute inset-0">
         <Image
-          src="/images/backgrounds/Home.jpg"
-          alt="Not Found"
+          src={backgroundImage}
+          alt="backgroundImage"
           fill
           priority
           style={{ objectFit: "cover", opacity: 1.0 }}
@@ -18,7 +38,7 @@ export default function Home() {
         <div className="absolute top-4 right-4">
           <Image
             src="/images/logo.svg"
-            alt="Priscilla FX Logo"
+            alt="logo"
             width={192}
             height={192}
             priority
@@ -28,24 +48,7 @@ export default function Home() {
 
       {/* Menu */}
       <nav className="fixed right-4 top-1/3 flex flex-col items-center bg-black rounded-lg p-4 space-y-2">
-        {[
-          { href: "/", icon: "icon-home.svg", label: "Home" },
-          { href: "blog", icon: "icon-blog.svg", label: "Blog" },
-          {
-            href: "software",
-            icon: "icon-software.svg",
-            label: "Software",
-          },
-          { href: "custom", icon: "icon-custom.svg", label: "Custom" },
-          { href: "mods", icon: "icon-mods.svg", label: "Mods" },
-          {
-            href: "artists",
-            icon: "icon-artists.svg",
-            label: "Artists",
-          },
-          { href: "faq", icon: "icon-faq.svg", label: "F.A.Q." },
-          { href: "about", icon: "icon-about.svg", label: "About" },
-        ].map((item) => (
+        {navItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
@@ -63,12 +66,6 @@ export default function Home() {
         ))}
       </nav>
 
-      {/*
-        <div className="relative z-10 mt-20 text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">Welcome to Priscilla FX</h1>
-          <p className="text-lg">Explore our services and offerings.</p>
-        </div>
-      */}
     </main>
   );
 }

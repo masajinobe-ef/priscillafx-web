@@ -3,7 +3,7 @@ import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Priscilla FX",
-  description: "Priscilla Custom Effects | Mods",
+  description: "Priscilla Custom Effects | Mods | IT",
 };
 
 export default function RootLayout({
