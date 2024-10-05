@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../styles/globals.css";
+import "../../styles/globals.css";
 import Image from "next/image";
-import NavBar from "../components/navbar";
-import Footer from "../components/footer";
+import NavBar from "../../components/navbar";
+import Footer from "../../components/footer";
 
-interface Custom { }
+interface Mods { }
 
-export default function Custom() {
-  const [mods, setmods] = useState<Custom[]>([]);
+export default function Mods() {
+  const [mods, setmods] = useState<Mods[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -16,7 +16,7 @@ export default function Custom() {
     const fetchmods = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:50150/mods/get_custom"
+          "http://localhost:50150/mods/get_mods"
         );
         const data = response.data;
 
@@ -26,7 +26,7 @@ export default function Custom() {
           setError(data.details);
         }
       } catch (err) {
-        setError("Failed to fetch custom");
+        setError("Failed to fetch mods");
       } finally {
         setLoading(false);
       }
@@ -56,7 +56,7 @@ export default function Custom() {
           ) : mods.length === 0 ? (
             <div className="flex flex-col justify-center items-center min-h-screen w-full">
               <div className="bg-gray-800 rounded-lg p-6">
-                <p className="text-white">No custom found</p>
+                <p className="text-white">No mods found</p>
               </div>
             </div>
           ) : (

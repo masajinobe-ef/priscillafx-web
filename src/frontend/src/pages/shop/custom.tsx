@@ -1,44 +1,38 @@
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/globals.css";
-import NavBar from "../components/navbar";
-import Footer from "../components/footer";
+import { useEffect, useState } from "react";
+import "../../styles/globals.css";
+import Image from "next/image";
+import NavBar from "../../components/navbar";
+import Footer from "../../components/footer";
 
-interface Artist {
-  id: string;
-  full_name: string;
-  band: string;
-  link: string;
-  image_url: string;
-}
+interface Custom { }
 
-export default function Artists() {
-  const [artists, setArtists] = useState<Artist[]>([]);
+export default function Custom() {
+  const [mods, setmods] = useState<Custom[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchArtists = async () => {
+    const fetchmods = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:50150/artists/get_artists"
+          "http://localhost:50150/mods/get_custom"
         );
         const data = response.data;
 
         if (data.status === "Success") {
-          setArtists(data.data);
+          setmods(data.data);
         } else {
           setError(data.details);
         }
       } catch (err) {
-        setError("Failed to fetch artists");
+        setError("Failed to fetch custom");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchArtists();
+    fetchmods();
   }, []);
 
   return (
@@ -59,31 +53,31 @@ export default function Artists() {
                 <p className="text-red-500">{error}</p>
               </div>
             </div>
-          ) : artists.length === 0 ? (
+          ) : mods.length === 0 ? (
             <div className="flex flex-col justify-center items-center min-h-screen w-full">
               <div className="bg-gray-800 rounded-lg p-6">
-                <p className="text-white">No artists found</p>
+                <p className="text-white">No custom found</p>
               </div>
             </div>
           ) : (
             <ul>
-              {artists.map((artist) => (
-                <li key={artist.id} className="mb-4">
-                  <a href={artist.link}>
+              {mods.map((mod) => (
+                <li key={mod.id} className="mb-4">
+                  <a href={mod.link}>
                     <Image
-                      src={artist.image_url}
+                      src={mod.image_url}
                       width={250}
                       height={250}
-                      alt={artist.full_name}
+                      alt={mod.full_name}
                       className="rounded"
                     />
                   </a>
-                  <p>{artist.full_name}</p>
+                  <p>{mod.full_name}</p>
                   <a
                     className="text-white bg-purple-600 hover:bg-purple-700 transition-colors rounded px-2 py-1"
-                    href={artist.link}
+                    href={mod.link}
                   >
-                    {artist.band}
+                    {mod.band}
                   </a>
                 </li>
               ))}

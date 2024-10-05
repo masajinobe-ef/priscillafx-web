@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../styles/globals.css";
+import "../../styles/globals.css";
 import Image from "next/image";
-import NavBar from "../components/navbar";
+import NavBar from "../../components/navbar";
 
 interface Post {
   created_at: string;

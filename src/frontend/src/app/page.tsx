@@ -1,25 +1,25 @@
 import Image from "next/image";
 
 export default function Home() {
-  const navItems = [
+  const NavItems = [
     { href: "/", icon: "icon-home.svg", label: "Home" },
-    { href: "blog", icon: "icon-blog.svg", label: "Blog" },
+    { href: "info/blog", icon: "icon-blog.svg", label: "Blog" },
     {
-      href: "software",
+      href: "shop/software",
       icon: "icon-software.svg",
       label: "Software",
     },
-    { href: "custom", icon: "icon-custom.svg", label: "Custom" },
-    { href: "mods", icon: "icon-mods.svg", label: "Mods" },
+    { href: "shop/custom", icon: "icon-custom.svg", label: "Custom" },
+    { href: "shop/mods", icon: "icon-mods.svg", label: "Mods" },
     {
-      href: "artists",
+      href: "info/artists",
       icon: "icon-artists.svg",
       label: "Artists",
     },
-    { href: "faq", icon: "icon-faq.svg", label: "F.A.Q." },
-    { href: "about", icon: "icon-about.svg", label: "About" },
+    { href: "info/faq", icon: "icon-faq.svg", label: "F.A.Q." },
+    { href: "info/about", icon: "icon-about.svg", label: "About" },
   ];
-  const backgroundImage = "/images/backgrounds/Home.jpg"
+  const backgroundImage = "/images/backgrounds/home.jpg"
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between p-12">
@@ -48,7 +48,7 @@ export default function Home() {
 
       {/* Menu */}
       <nav className="fixed right-4 top-1/3 flex flex-col items-center bg-black rounded-lg p-4 space-y-2">
-        {navItems.map((item) => (
+        {NavItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
