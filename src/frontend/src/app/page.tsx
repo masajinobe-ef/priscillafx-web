@@ -19,7 +19,7 @@ export default function Home() {
     { href: "info/faq", icon: "icon-faq.svg", label: "F.A.Q." },
     { href: "info/about", icon: "icon-about.svg", label: "About" },
   ];
-  const backgroundImage = "/images/backgrounds/home.jpg"
+  const backgroundImage = "/images/backgrounds/home.jpg";
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between p-12">
@@ -65,7 +65,6 @@ export default function Home() {
           </a>
         ))}
       </nav>
-
     </main>
   );
 }

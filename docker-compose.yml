@@ -1,3 +1,5 @@
+# TODO Добавить такие сервисы как Redis, Celery (flower)
+
 networks:
   deploy_pfx:
 
@@ -30,4 +32,3 @@ services:
       context: ./frontend
     networks:
       - deploy_pfx
-# TODO Добавить такие сервисы как Redis, Celery (flower)

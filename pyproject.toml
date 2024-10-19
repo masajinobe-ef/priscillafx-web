@@ -1,46 +1,33 @@
-# Poetry
-[tool.poetry]
+[project]
 name = "priscillafx-web"
 version = "0.1.0"
-description = "🌐 Priscilla FX online store and information resource written with Next.𝐣s and Fast𝓐PI.  🐘PostgreSQL / 🇷edis / 🇩ocker."
-authors = ["masajinobe-ef <priscilla.effects@gmail.com>"]
-license = "GPL-3.0"
+description = "🌐 Priscilla FX online store and information resource written with Next.𝐣s and Fast𝓐PI. 🐘PostgreSQL / 🇷edis / 🇩ocker."
+authors = [{ name = "Priscilla IT", email = "priscilla.effects@gmail.com" }]
 readme = "README.md"
-packages = [{ include = "*", from = "src/backend" }]
+requires-python = ">=3.10"
+dependencies = [
+    "aioredis>=2.0.1",
+    "alembic>=1.13.3",
+    "asyncpg>=0.29.0",
+    "celery>=5.4.0",
+    "cryptography>=43.0.3",
+    "fastapi-cache2[redis]>=0.2.2",
+    "fastapi-users[sqlalchemy]>=13.0.0",
+    "fastapi>=0.115.2",
+    "flower>=2.0.1",
+    "gunicorn>=23.0.0",
+    "loguru>=0.7.2",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.0.1",
+    "pyyaml>=6.0.2",
+    "sqlalchemy>=2.0.36",
+    "sqlmodel>=0.0.22",
+    "uvicorn>=0.32.0",
+]
 
-# Deps
-[tool.poetry.dependencies]
-python = "^3.10"
-python-multipart = "^0.0.9"
-pyyaml = "^6.0.2"
+[tool.uv]
+dev-dependencies = ["ruff>=0.7.0"]
 
-fastapi = "^0.110.0"
-uvicorn = { extras = ["standard"], version = "^0.29.0" }
-gunicorn = "^22.0.0"
-
-psycopg2-binary = "^2.9.9"
-asyncpg = "^0.29.0"
-sqlalchemy = "^2.0.29"
-sqlmodel = "^0.0.16"
-alembic = "^1.13.1"
-
-aioredis = "^2.0.1"
-fastapi-cache2 = { extras = ["redis"], version = "^0.2.1" }
-
-fastapi-users = { extras = ["sqlalchemy"], version = "^13.0.0" }
-cryptography = "^42.0.8"
-
-celery = "^5.4.0"
-flower = "^2.0.1"
-
-loguru = "^0.7.2"
-
-# Dev-Deps
-[tool.poetry.group.dev.dependencies]
-commitizen = "^3.27.0"
-
-
-# Ruff
 [tool.ruff]
 line-length = 79
 indent-width = 4
@@ -51,19 +38,3 @@ indent-style = "space"
 
 [tool.ruff.lint]
 ignore = ["F403"]
-
-# Commitizen
-[tool.commitizen]
-name = "cz_conventional_commits"
-tag_format = "$version"
-version_scheme = "pep440"
-version_provider = "poetry"
-version = "0.1.0"
-update_changelog_on_bump = true
-major_version_zero = true
-
-
-# Poetry build system
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

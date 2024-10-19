@@ -25,7 +25,7 @@ from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 
 # Loguru
-from logger import logger
+from api.logger import logger
 
 # Redis
 from redis import asyncio as aioredis
@@ -60,7 +60,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     lifespan=lifespan,
     title='Priscilla FX',
-    # docs_url=None,
+    # docs_url=None, # TODO Вынести параметры в settings.yaml + ECHO_DB
     # openapi_url=None,
     redoc_url=None,
 )

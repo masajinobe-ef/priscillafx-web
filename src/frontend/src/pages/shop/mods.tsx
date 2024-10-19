@@ -5,7 +5,7 @@ import Image from "next/image";
 import NavBar from "../../components/navbar";
 import Footer from "../../components/footer";
 
-interface Mods { }
+interface Mods {}
 
 export default function Mods() {
   const [mods, setmods] = useState<Mods[]>([]);

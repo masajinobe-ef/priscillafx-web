@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function NotFound() {
-  const backgroundImage = "/images/backgrounds/notfound.jpg"
+  const backgroundImage = "/images/backgrounds/notfound.jpg";
 
   return (
     <>

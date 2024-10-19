@@ -25,7 +25,7 @@
 ## Деплой
 
 - Для работы потребуется база данных [PostgreSQL](https://www.postgresql.org).
-- [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer) менеджер управления пакетами.
+- [uv](https://github.com/astral-sh/uv) менеджер управления пакетами.
 - [Docker](https://www.docker.com) в качестве контейнера.
 
 Клонировать репозиторий:

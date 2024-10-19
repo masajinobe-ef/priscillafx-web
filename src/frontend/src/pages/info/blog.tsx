@@ -40,7 +40,7 @@ export default function Blog() {
     fetchPosts();
   }, []);
 
-  const backgroundImage = "/images/backgrounds/blog.jpg"
+  const backgroundImage = "/images/backgrounds/blog.jpg";
 
   return (
     <div className="relative flex flex-col h-screen overflow-hidden bg-black text-white">
@@ -120,5 +120,4 @@ export default function Blog() {
       </footer>
     </div>
   );
-};
-
+}

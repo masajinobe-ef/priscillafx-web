@@ -1,4 +1,5 @@
 # TODO Добавить разветку PostgreSQL вместе с API
+# TODO Poetry -> uv
 
 # Install Python, Update Debian 12 and Install curl
 FROM python:3.10.14-slim-bookworm
