@@ -2,19 +2,20 @@
 Written by masajinobe-ef
 """
 
-from datetime import datetime
-from loguru import logger
 import os
 
+from datetime import datetime
+from loguru import logger
 
-FILENAME = "priscillafx_api.log"
+
+FILENAME = 'priscillafx_api.log'
 RETENTION = 14
-ROTATION = "00:00"
-FORMAT = "{time:DD/MM/YYYY HH:mm:ss} | {level} | {message}"
+ROTATION = '00:00'
+FORMAT = '{time:DD/MM/YYYY HH:mm:ss} | {level} | {message}'
 
 
 def now() -> str:
-    return datetime.now().strftime("%d-%m-%Y")
+    return datetime.now().strftime('%d-%m-%Y')
 
 
 def setup_logger(
@@ -23,17 +24,17 @@ def setup_logger(
     rotation: str = ROTATION,
     format: str = FORMAT,
 ):
-    log_dir = "logs"
+    log_dir = 'logs'
     os.makedirs(log_dir, exist_ok=True)
 
-    filepath = os.path.join(log_dir, f"{now()}_{filename}")
+    filepath = os.path.join(log_dir, f'{now()}_{filename}')
 
     logger.add(
         filepath,
         rotation=rotation,
         format=format,
-        retention=f"{retention_days} days",
-        level="DEBUG",
+        retention=f'{retention_days} days',
+        level='DEBUG',
     )
 
 

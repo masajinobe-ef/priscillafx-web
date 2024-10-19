@@ -25,7 +25,7 @@ from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 
 # Loguru
-from api.logger import logger
+from logger import logger
 
 # Redis
 from redis import asyncio as aioredis
@@ -74,7 +74,7 @@ app.include_router(router_tasks)
 
 
 # Mount static files
-app.mount('/static', StaticFiles(directory='api/static'), name='static')
+app.mount('/static', StaticFiles(directory='static'), name='static')
 
 
 # CORS
