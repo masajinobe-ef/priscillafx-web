@@ -2,10 +2,11 @@
 Written by masajinobe-ef
 """
 
-# FastAPI Users
 # Config
 from config import JWT_SECRET_KEY
 from database.models.auth.models import User
+
+# FastAPI Users
 from fastapi_users import FastAPIUsers
 from fastapi_users.authentication import (
     AuthenticationBackend,

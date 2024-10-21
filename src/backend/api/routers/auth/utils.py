@@ -2,12 +2,13 @@
 Written by masajinobe-ef
 """
 
-# FastAPI
 # Database
 from database.db import get_async_session
 
 # Auth depends
 from database.models.auth.models import User
+
+# FastAPI
 from fastapi import Depends
 from fastapi_users_db_sqlalchemy import SQLAlchemyUserDatabase
 
