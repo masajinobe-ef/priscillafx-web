@@ -82,7 +82,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         'http://localhost:50160',  # Next.js local port
-        #'http://localhost', Будущий VDS ip
+        # 'http://localhost', Будущий VDS ip
     ],
     allow_credentials=True,
     allow_methods=['GET', 'POST', 'OPTIONS', 'DELETE', 'PATCH', 'PUT'],
